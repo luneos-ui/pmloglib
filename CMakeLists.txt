@@ -20,7 +20,7 @@
 # PmLogLib/CMakeLists.txt
 #
 
-cmake_minimum_required (VERSION 2.8.7)
+cmake_minimum_required (VERSION 3.10.0)
 
 if(BUILD_PRIVATE)
 	project(PmLogLib NONE)
@@ -45,7 +45,7 @@ endif()
 # To enable this option run "cmake -D BUILD_PRIVATE=ON"
 if(BUILD_PRIVATE)
 	webos_build_pkgconfig(files/pkgconfig/PmLogLib-private)
-	install(DIRECTORY "include/private/" DESTINATION @WEBOS_INSTALL_INCLUDEDIR@ FILES_MATCHING PATTERN "*.h" PATTERN ".*" EXCLUDE)
+	install(DIRECTORY "include/private/" DESTINATION "${WEBOS_INSTALL_INCLUDEDIR}" FILES_MATCHING PATTERN "*.h" PATTERN ".*" EXCLUDE)
 	return()
 endif()
 
@@ -56,7 +56,7 @@ endif()
 if(NOT BUILD_WITHOUT_HEADERS)
 	webos_build_pkgconfig(files/pkgconfig/PmLogLib-headers)
 	webos_configure_header_files(include/public INSTALL)
-	install(DIRECTORY "include/public/" DESTINATION @WEBOS_INSTALL_INCLUDEDIR@ FILES_MATCHING PATTERN "*.h" PATTERN ".*" EXCLUDE)
+	install(DIRECTORY "include/public/" DESTINATION "${WEBOS_INSTALL_INCLUDEDIR}" FILES_MATCHING PATTERN "*.h" PATTERN ".*" EXCLUDE)
 	if(SHIP_HEADERS_ONLY)
 		return()
 	endif()

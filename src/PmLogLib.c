@@ -2321,7 +2321,7 @@ PmLogErr PmLogString_(PmLogContext context, PmLogLevel level,
 
 	if (kPmLogErr_EmptyMsgID == logErr) {
 		char buffer[128] = {0,};
-		snprintf(buffer, sizeof(buffer), lineStr);
+		snprintf(buffer, sizeof(buffer), "%s", lineStr);
 		gchar *escaped_str = g_strescape(buffer, "");
 		ErrPrint(contextP->component, ptidStr,
 		         "EMPTY_MSGID {\"MESSAGE\":\"%s ...\"} MSGID must not be empty",
